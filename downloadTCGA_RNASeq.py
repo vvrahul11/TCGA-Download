@@ -15,7 +15,9 @@ def getRnaseqData(url):
         if header == 1:
             header = 2
         else:
-            newline = line.split('\n')            
+            newline = line.split('\n')
+            newline = [everyword.split('\t') for everyword in newline]
+            genes_name.append(newline[0])
             normalized_count.append(newline[1])            
     return(genes_name, normalized_count)
     
